@@ -5,10 +5,12 @@
         public static function connect()
         {
 
-            $host = "localhost";
-            $user = "root";
-            $senha = "";
-            $banco = "webhook-universal";
+            $dados = json_decode(file_get_contents('CONFIG.json'));
+
+            $host = $dados->host;
+            $user = $dados->user;
+            $senha = $dados->senha;
+            $banco = $dados->banco;
 
 
 

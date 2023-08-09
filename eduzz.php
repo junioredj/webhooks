@@ -2,8 +2,11 @@
 
     require_once "autoload.php";
 
+    
+
     $json = json_decode(file_get_contents('eduzz.json'));
     
+    $dados = json_decode(file_get_contents('CONFIG.json'));
     
     
 
@@ -31,7 +34,7 @@
 
 
 
-    if($json->api_key == "s044o56d2n")//Verificação da API KEY encontrada no "https://orbita.eduzz.com/producer/config-api"
+    if($json->api_key == $dados->api_key)//Verificação da API KEY encontrada no "https://orbita.eduzz.com/producer/config-api"
     {
         if($json->trans_status == 3)//Verifica se a fatura foi paga
         {
@@ -98,6 +101,8 @@
             echo json_encode($webhook->updateTransacao());
         }
     }
+    else
+        echo json_encode(array('api_key' => "invalid"));
 
     
 

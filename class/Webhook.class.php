@@ -46,6 +46,7 @@
             
          }
 
+        //Verifica se uma assintura já existe
         public static function assinaturaExistente($code_transaction)
         {
             try
@@ -77,6 +78,7 @@
             }
         }
 
+        //Atualiza a transação no banco de dados
         public function updateTransacao()
         {
             
@@ -114,7 +116,7 @@
 
 
 
-
+        //Insere um nova transação no banco de dados
         public function inserirTransacao()
         {
             
